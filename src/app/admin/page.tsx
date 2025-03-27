@@ -362,7 +362,7 @@ export default function Admin({}: Props) {
                     currentSelectedTimeline={currentSelectedTimeline}
                   />
                 </div>
-                <div className="">
+                <div className="w-[90%]">
                   {/* <InsuranceCasesPie
                     jobCards={jobCards}
                     currentSelectedTimeline={currentSelectedTimeline}
