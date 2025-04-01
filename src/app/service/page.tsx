@@ -197,7 +197,9 @@ export default function Service({}: Props) {
         (obj: any) => obj.email == parsedToken.email
       );
 
-      setServiceAdvisorStats(selectedStat);
+      if (selectedStat) {
+        setServiceAdvisorStats(selectedStat);
+      }
 
       console.log(
         "SERVICE ADVISOR STAT",
@@ -238,14 +240,14 @@ export default function Service({}: Props) {
               value={completedJobCars}
             /> */}
             <DisplayAdvisorJobCards
-              completedCars={serviceAdvisorStats.completedJobCards}
-              totalCars={serviceAdvisorStats.numberOfJobCards}
-              advisorEmail={serviceAdvisorStats.email}
+              completedCars={serviceAdvisorStats.completedJobCards || 0}
+              totalCars={serviceAdvisorStats.numberOfJobCards || 0}
+              advisorEmail={serviceAdvisorStats.email || 0}
             />
             <DisplayCard
               icon={<IndianRupee />}
               desc={"Revenue So far"}
-              value={serviceAdvisorStats.totalJobCardAmt}
+              value={serviceAdvisorStats.totalJobCardAmt || 0}
             />
           </div>
           <div className="flex lg:hidden w-full justify-center mt-10">
