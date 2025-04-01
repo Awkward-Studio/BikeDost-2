@@ -189,6 +189,8 @@ export default function Service({}: Props) {
         totalJobCardAmt: roundToTwoDecimals(advisor.totalJobCardAmt),
       }));
 
+      console.log("ALL ADVISOPR STATS - ", serviceAdvisors);
+
       const token = getCookie("user");
 
       const parsedToken = JSON.parse(String(token));
@@ -199,6 +201,11 @@ export default function Service({}: Props) {
 
       if (selectedStat) {
         setServiceAdvisorStats(selectedStat);
+      } else {
+        setServiceAdvisorStats({
+          ...serviceAdvisorStats,
+          email: parsedToken.email,
+        });
       }
 
       console.log(
