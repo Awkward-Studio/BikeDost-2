@@ -22,22 +22,23 @@ import { BaseRepository } from "./BaseRepo";
 
 export const config = {
   endpoint: "https://cloud.appwrite.io/v1",
-  // platform: "com.index.t3",
-  projectId: "66b10a0100095b4634e4",
-  databaseId: "66b10c670021dc021477",
-  carsCollectionId: "66deb8920021a5819b2c",
-  tempCarsCollectionId: "66e933af0022ed863b96",
-  jobCardsCollectionId: "66e80a830013e7a81f31",
-  partsCollectionId: "66f6ce58000446f6aeaf",
-  labourCollectionId: "66fa5dc6003941f79697",
-  invoicesCollectionId: "6710ba53003b4b25a23d",
-  historyCollectionId: "670cbc13003d80c32176",
-  invoiceStorageBucketId: "677e05b70025ceed10e4",
-  imageStorageBucketId: "67053962002be8598a04",
-  pdfStorageBucketId: "67c97ee0000a45e85251",
-  carModelsCollectionId: "678e143f003c388e2603",
-  insuranceProvidersCollectionId: "67963228001b5bf116e6",
-  deletedJobCardsCollectionId: "67989f07000005e743d4",
+  projectId: "67f62681000d581fbd62",
+  databaseId: "67f626df003d02582521",
+  carsCollectionId: "67f6287b002c63ed3c54",
+  tempCarsCollectionId: "67f628a20018c8fc8112",
+  jobCardsCollectionId: "67f6288b0002fa2f103f",
+  partsCollectionId: "67f628b0000dcdbd05af",
+  labourCollectionId: "67f628bd0014dd738b65",
+  invoicesCollectionId: "67f628d40030f2820b6e",
+  historyCollectionId: "67f628c90032e2dd8178",
+  invoiceStorageBucketId: "67f637b0001c9cec38aa",
+  imageStorageBucketId: "67f6378d003431bf7585",
+  pdfStorageBucketId: "67f637d100397e6ca3a5",
+  carModelsCollectionId: "67f628e8001bbefb0c60",
+  insuranceProvidersCollectionId: "67f628f2000437c9616a",
+  deletedJobCardsCollectionId: "67f628fb003181aa18f1",
+  fetchUserInfoFunctionId: "67f6367b00337618278d",
+  atomicCounterCollectionId: "67f628e20003cba867a2",
 };
 
 export let client: any;
@@ -340,7 +341,9 @@ export const loginUser = async (email: string, password: string) => {
 };
 
 export const listAllUsers = async () => {
-  const response = await functions.createExecution("6731d19d00250e7e0b6f");
+  const response = await functions.createExecution(
+    config.fetchUserInfoFunctionId
+  );
   const obj = JSON.parse(response.responseBody);
   const users = obj.users.users;
   return users;
